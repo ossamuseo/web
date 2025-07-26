@@ -7,7 +7,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     :root {
-      --rojo: #c62828;
+      --verde: #0a7e00;
       --negro: #121212;
       --blanco: #ffffff;
     }
@@ -24,7 +24,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: var(--rojo);
+      background: var(--verde);
       padding: 1rem 1rem;
       display: flex;
       justify-content: center;
@@ -55,8 +55,15 @@
 
     section h2 {
       margin-bottom: 20px;
-      color: var(--rojo);
+      color: var(--verde);
       font-size: 2rem;
+      text-align: center;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      color: var(--verde);
+      font-size: 1rem;
       text-align: center;
     }
 
@@ -77,9 +84,9 @@
 
     .inicio-grid a img {
       width: 100%;
-      height: 160px;
+      height: 300px;
       object-fit: cover;
-      border: 4px solid var(--rojo);
+      border: 4px solid var(--verde);
       border-radius: 8px;
       transition: transform 0.3s, border-color 0.3s;
     }
@@ -89,10 +96,36 @@
       border-color: #ffd700;
     }
 
+.firmas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Fuerza 2 columnas por fila */
+  gap: 10px;
+  padding: 10px;
+}
+
+.firmas-grid a {
+  display: block;
+  width: 100%;
+}
+
+.firmas-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.firmas-grid img:hover {
+  transform: scale(1.05);
+}
+
+
     /* ----------- FOOTER ----------- */
     footer {
       padding: 2rem 1rem;
-      background: var(--rojo);
+      background: var(--verde);
       text-align: center;
       color: var(--blanco);
     }
@@ -116,6 +149,10 @@
       .inicio-grid a img {
         height: 140px;
       }
+
+      .firmas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 480px) {
@@ -131,6 +168,10 @@
       .inicio-grid a img {
         height: 130px;
       }
+
+      .firmas-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -142,20 +183,26 @@
     <a href="#planta1">1ra Planta</a>
     <a href="#planta2">2da Planta</a>
     <a href="#planta3">3ra Planta</a>
+    <a href="#tecnologia">Tecnología</a>
+    <a href="#opiniones">Opiniones</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
   <!-- SECCIÓN INICIO -->
   <section id="inicio">
     <div class="container">
-      <h2>Bienvenidos al Museo Ossa</h2>
-      <p>Explora cada planta y descubre historias únicas.</p>
+      <h2>Bienvenidos al Museo Ciencia y Tecnología Ossa</h2>
+      <p>Desde el siglo XIX y a lo largo del XX, las innovaciones tecnológicas no han dejado de evolucionar.
+        <br> En el museo "Ossa", un museo de historias, las cuales han influido directamente en la población nacional.
+        <br> Los primeros proyectores de cine fabricados, máquinas de coser, tocadiscos, juguetes infantiles
+        relacionados con el cine, motores fueraborda, motores de combustión de 2 y 4 tiempos...
+      </p>
 
       <div class="inicio-grid">
-        <a href="#planta1"><img src="https://via.placeholder.com/300x150?text=1ra+Planta" alt="1ra Planta" /></a>
-        <a href="#planta2"><img src="https://via.placeholder.com/300x150?text=2da+Planta" alt="2da Planta" /></a>
-        <a href="#planta3"><img src="https://via.placeholder.com/300x150?text=3ra+Planta" alt="3ra Planta" /></a>
-        <a href="#contacto"><img src="https://via.placeholder.com/300x150?text=Contacto" alt="Contacto" /></a>
+        <a href="#planta1" style="color: white;"><img src="img/planta_1.jpg" alt="1ra Planta" />Planta 1</a>
+        <a href="#planta2" style="color: white;"><img src="img/planta_2_gral.jpg" alt="2da Planta" />Planta 2</a>
+        <a href="#planta3" style="color: white;"><img src="img/planta_3_h.jpg" alt="3ra Planta" />Planta 3</a>
+        <a href="#tecnologia" style="color: white;"><img src="img/ruiromer.jpg" alt="Tecnología" />Tecnología</a>
       </div>
     </div>
   </section>
@@ -164,29 +211,194 @@
   <section id="planta1">
     <div class="container">
       <h2>Primera Planta</h2>
-      <p>Exposición de arte clásico, esculturas romanas y griegas, piezas del siglo XVIII.</p>
+      <p>Historia del cine desde 1860 hasta 1975. 
+        Pasando por el número uno de la industria nacional en España que fue OSSA.</p><br>
+
+      <a><img src="img/planta_1.jpg" alt="1ra Planta" style="width: 100%; height: 350px; object-fit: cover;" />
+
+      <div class="inicio-grid">
+        <h3>La marca numero uno en España OSSA fabricó proyectores de 1930 a 1965, que conquistaron el 90% de los cines de España.</h3>
+        <a href="img/ossa_30_65.jpg" target="_blank"><img src="img/ossa_30_65.jpg" alt="1ra Planta" /></a>
+      </div>
+      
+      <div class="inicio-grid">
+        <h3>Toda la industria nacional española del juguete relacionada con el cine desde 1900 hasta 1980.</h3>
+        <a href="img/juguete.jpg" target="_blank"><img src="img/juguete.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Marcas de proyectores españoles que surgieron en los años 50 y todos fracasaron: HISPANIA, DAEX, DICKSON, MARINO, WAXMAN, CREA, GALAN, RIVATON, MAYAFOT, PERGAM...</h3>
+        <a href="img/proyectores.jpg" target="_blank"><img src="img/proyectores.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Proyectores de juguete fabricados en USA y otros países con licencia y tecnología española a partir de 1930.</h3>
+        <a href="img/juguetes-usa.jpg" target="_blank"><img src="img/juguetes-usa.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Historia del cine mudo desde 1860 hasta 1927.</h3>
+        <a href="img/mudo.jpg" target="_blank"><img src="img/mudo.jpg" alt="1ra Planta" /></a>
+      </div>
+
     </div>
   </section>
 
   <section id="planta2">
     <div class="container">
       <h2>Segunda Planta</h2>
-      <p>Pintura moderna, colecciones de arte contemporáneo y obras de artistas locales.</p>
+      <p>En esta planta podemos contemplar todas las innovaciones técnicas
+        hechas por OSSA y por otros países con la tecnología OSSA.
+      </p><br>
+      <a><img src="img/planta_2_gral.jpg" alt="2da Planta" style="width: 100%; height: 350px; object-fit: cover;"/>
+
+      
+      <div class="inicio-grid">
+        <h3>Motos que revolucionaron el mercado americano</h3>
+        <a href="img/yankee_1000z_4cylinder.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" />
+          OSSA Yankee 4 cilindros, motor de 1000cc, firmada por su constructor Dickmann.</a>
+        <a href="img/yankee_460z.jpg" target="_blank"><img src="img/yankee_460z.jpg" alt="2da Planta" />
+          OSSA Yankee 460z, preparada para carreras de Dirt Track.</a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>El equipo OSSA de ciclismo que ganó el campeonato de España en 1956.</h3>
+        <a href="img/ossa_1956.jpg" target="_blank"><img src="img/ossa_1956.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Ricardo Soriano, el mayor inventor que ha habido en automoción en España en el Siglo XX y sus inventos, y nada reconocido en España.</h3>
+        <a href="img/soriano.jpg" target="_blank"><img src="img/soriano.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>La historia de las suspensiones Off Road Cantilever (Prolever), Full Floater,
+          Prolink, Unitrack... todas ellas derivadas del sistema Bolger (OSSA).</h3>
+        <a href="img/yamaha.jpg" target="_blank"><img src="img/yamaha.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Las motos OSSA de jugar al fútbol: Motoball. Muy apreciadas también en Francia.</h3>
+        <a href="img/motoball.jpg" target="_blank"><img src="img/motoball.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>El desarrollo del trial y sidetrial en España y en Europa.</h3>
+        <a href="img/trial_1.jpg" target="_blank"><img src="img/trial_1.jpg" alt="1ra Planta" /></a>
+        <a href="img/sidetrial.jpg" target="_blank"><img src="img/sidetrial.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Hispano Villiers: Un nombre que revolucionó la industria del motor en España
+          a todos los niveles y ayudó al desarrollo económico en la Posguerra.</h3>
+        <a href="img/villiers.jpg" target="_blank" ><img src="img/villiers.jpg" alt="1ra Planta" /></a>
+        <a href="img/villiers_2.jpg" target="_blank"><img src="img/villiers_2.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Motos OSSA que participaron en grandes eventos: OSSA 24 horas de Montjuich, Paris Dakar, 24 horas de Le Mans.</h3>
+        <a href="img/Montjuic.jpg" target="_blank"><img src="img/Montjuic.jpg" alt="1ra Planta" />OSSA de 24 horas de Montjuich</a>
+        <a href="img/dakar.jpg" target="_blank"><img src="img/dakar.jpg" alt="1ra Planta" />OSSA de Paris Dakar y Rally de Marruecos</a>
+        <a href="img/le_mans.jpg" target="_blank"><img src="img/le_mans.jpg" alt="1ra Planta" />OSSA de 24 horas de Le Mans</a>
+      </div>
     </div>
   </section>
 
   <section id="planta3">
     <div class="container">
       <h2>Tercera Planta</h2>
-      <p>Espacios interactivos, realidad aumentada, talleres para niños y adultos.</p>
+      <p>Toda la gama OSSA fabricada a lo largo de 40 años en sus diferentes clases: Trial, Motocross, Enduro, Ciclomotores y Carretera.
+        Acompañado de objetos de época: ropa, cascos, surtidores...
+      </p><br> <!-- Falta annadir fotos de cada clase aqui-->
+      <a><img src="img/planta_3_h.jpg" alt="3ra Planta" style="width: 100%; height: 350px; object-fit: cover;"/>
+
+
+      <div class="inicio-grid">
+        <h3>El rarísimo vehículo Ruiromer, fabricado en Zaragoza, mezcla de coche y moto y que no tuvo difusión.</h3>
+        <a href="img/ruiromer.jpg" target="_blank"><img src="img/ruiromer.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3>Las motos fabricadas en Zaragoza, para calle y competición, y su conexión con las industrias Balay y Lackey.</h3>
+        <a href="img/lackey.jpg" target="_blank"><img src="img/lackey.jpg" alt="1ra Planta" /></a>
+      </div>
+
     </div>
   </section>
+
+  <section id="tecnologia">
+  <div class="container">
+    <h2>Tecnología aragonesa</h2> <!-- poner cuarta foto -->
+    <p>Vehículos fabricados en Zaragoza y otras historias...</p>
+
+    <div class="inicio-grid">
+      <h3>Coche Barrio.... El único coche construido por Industrias Barrio en 1969.</h3>
+      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3>El rarísimo vehículo Ruiromer, mezcla de coche y moto y que no tuvo difusión.</h3>
+      <a href="img/ruiromer.jpg" target="_blank"><img src="img/ruiromer.jpg" alt="1ra Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3>Las motos fabricadas en Zaragoza, para calle y competición, y su conexión con las industrias Balay y Lackey.</h3>
+      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3>Una de las industrias jugueteras más importantes a nivel nacional como fueron Nacoral y Zaplas.</h3>
+      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3>Escalar las torres del Pilar en 1922 sin cuerdas y sesión de cine en la Plaza del Pilar.</h3>
+      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3>Moto Valls: Una moto adelantada téncnicamente a su tiempo y que no pasó del prototipo.</h3>
+      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+    </div>
+
+  </div>
+  </section>
+
+  <section id="opiniones">
+  <div class="container">
+    <h2>Opiniones</h2>
+
+    <div class="firmas-grid">
+      <a href="img/firmas/amazing.jpg" target="_blank"><img src="img/firmas/amazing.jpg" alt="Firma" /></a>
+      <a href="img/firmas/california.jpg" target="_blank"><img src="img/firmas/california.jpg" alt="Firma" /></a>
+      <a href="img/firmas/schonste.jpg" target="_blank"><img src="img/firmas/schonste.jpg" alt="Firma" /></a>
+      <a href="img/firmas/esfuerzo.jpg" target="_blank"><img src="img/firmas/esfuerzo.jpg" alt="Firma" /></a>
+      <a href="img/firmas/explicacion.jpg" target="_blank"><img src="img/firmas/explicacion.jpg" alt="Firma" /></a>
+      <a href="img/firmas/sorpresa.jpg" target="_blank"><img src="img/firmas/sorpresa.jpg" alt="Firma" /></a>
+      <a href="img/firmas/holandes.jpg" target="_blank"><img src="img/firmas/holandes.jpg" alt="Firma" /></a>
+      <a href="img/firmas/collection.jpg" target="_blank"><img src="img/firmas/collection.jpg" alt="Firma" /></a>
+      <a href="img/firmas/second.jpg" target="_blank"><img src="img/firmas/second.jpg" alt="Firma" /></a>
+      <a href="img/firmas/great.jpg" target="_blank"><img src="img/firmas/great.jpg" alt="Firma" /></a>
+      <a href="img/firmas/atads.jpg" target="_blank"><img src="img/firmas/atads.jpg" alt="Firma" /></a>
+      <a href="img/firmas/maravilla.jpg" target="_blank"><img src="img/firmas/maravilla.jpg" alt="Firma" /></a>
+      <a href="img/firmas/usa.jpg" target="_blank"><img src="img/firmas/usa.jpg" alt="Firma" /></a>
+      <a href="img/firmas/fantastica.jpg" target="_blank"><img src="img/firmas/fantastica.jpg" alt="Firma" /></a>
+      <a href="img/firmas/closed.jpg" target="_blank"><img src="img/firmas/closed.jpg" alt="Firma" /></a>
+      <a href="img/firmas/felicitacions.jpg" target="_blank"><img src="img/firmas/felicitacions.jpg" alt="Firma" /></a>
+      <a href="img/firmas/pasada.jpg" target="_blank"><img src="img/firmas/pasada.jpg" alt="Firma" /></a>
+      
+    </div>
+
+  </div>
+  </section>
+
 
   <section id="contacto">
     <div class="container">
       <h2>Contacto</h2>
       <p>📍 Dirección: Utebo, Zaragoza, España</p>
       <p>✉️ Email: ossamuseoutebo@gmail.com</p>
+      <p>Actualmente el museo está cerrado. <br> El correo electrónico se revisa diariamente.</p>
     </div>
   </section>
 
