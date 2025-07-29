@@ -28,8 +28,9 @@
       padding: 1rem 1rem;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
       z-index: 1000;
     }
 
@@ -44,6 +45,28 @@
 
     nav a:hover {
       background: #a91f1f;
+    }
+
+    /* Flags container */
+    .flags {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .flags img {
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      transition: border-color 0.3s;
+    }
+
+    .flags img.active {
+      border-color: #ffd700;
     }
 
     /* ----------- SECCIONES ----------- */
@@ -96,31 +119,30 @@
       border-color: #ffd700;
     }
 
-.firmas-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Fuerza 2 columnas por fila */
-  gap: 10px;
-  padding: 10px;
-}
+    .firmas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
 
-.firmas-grid a {
-  display: block;
-  width: 100%;
-}
+    .firmas-grid a {
+      display: block;
+      width: 100%;
+    }
 
-.firmas-grid img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
+    .firmas-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
 
-.firmas-grid img:hover {
-  transform: scale(1.05);
-}
-
+    .firmas-grid img:hover {
+      transform: scale(1.05);
+    }
 
     /* ----------- FOOTER ----------- */
     footer {
@@ -128,6 +150,10 @@
       background: var(--verde);
       text-align: center;
       color: var(--blanco);
+    }
+
+    .footy {
+      text-size-adjust: 360px;
     }
 
     /* ----------- RESPONSIVE ----------- */
@@ -179,30 +205,35 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#planta1">1ra Planta</a>
-    <a href="#planta2">2da Planta</a>
-    <a href="#planta3">3ra Planta</a>
-    <a href="#tecnologia">Tecnología</a>
-    <a href="#opiniones">Opiniones</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#inicio" data-key="nav_inicio">Inicio</a>
+    <a href="#planta1" data-key="nav_planta1">1ra Planta</a>
+    <a href="#planta2" data-key="nav_planta2">2da Planta</a>
+    <a href="#planta3" data-key="nav_planta3">3ra Planta</a>
+    <a href="#tecnologia" data-key="nav_tecnologia">Tecnología</a>
+    <a href="#opiniones" data-key="nav_opiniones">Opiniones</a>
+    <a href="#contacto" data-key="nav_contacto">Contacto</a>
+
+    <div class="flags">
+      <img src="img/bandera_es.png" alt="Español" id="btn-es" class="active" title="Español" />
+      <img src="img/bandera_en.png" alt="English" id="btn-en" title="English" />
+    </div>
   </nav>
 
   <!-- SECCIÓN INICIO -->
   <section id="inicio">
     <div class="container">
-      <h2>Bienvenidos al Museo Ciencia y Tecnología Ossa</h2>
-      <p>Desde el siglo XIX y a lo largo del XX, las innovaciones tecnológicas no han dejado de evolucionar.
-        <br> En el museo "Ossa", un museo de historias, las cuales han influido directamente en la población nacional.
+      <h2 data-key="inicio_titulo">Bienvenidos al Museo Ciencia y Tecnología Ossa</h2>
+      <p data-key="inicio_parrafo">Desde el siglo XIX y a lo largo del XX, la tecnología no ha dejado de evolucionar.
+        <br> En el museo "Ossa", un museo de historias, podemos encontrar los resultados de esa evolución tecnológica.
         <br> Los primeros proyectores de cine fabricados, máquinas de coser, tocadiscos, juguetes infantiles
         relacionados con el cine, motores fueraborda, motores de combustión de 2 y 4 tiempos...
       </p>
 
       <div class="inicio-grid">
-        <a href="#planta1" style="color: white;"><img src="img/planta_1.jpg" alt="1ra Planta" />Planta 1</a>
-        <a href="#planta2" style="color: white;"><img src="img/planta_2_gral.jpg" alt="2da Planta" />Planta 2</a>
-        <a href="#planta3" style="color: white;"><img src="img/planta_3_h.jpg" alt="3ra Planta" />Planta 3</a>
-        <a href="#tecnologia" style="color: white;"><img src="img/ruiromer.jpg" alt="Tecnología" />Tecnología</a>
+        <a href="#planta1" style="color: white;"><img src="img/planta_1.jpg" alt="1ra Planta" /><span data-key="inicio_planta1">Planta 1</span></a>
+        <a href="#planta2" style="color: white;"><img src="img/planta_2_gral.jpg" alt="2da Planta" /><span data-key="inicio_planta2">Planta 2</span></a>
+        <a href="#planta3" style="color: white;"><img src="img/planta_3_h.jpg" alt="3ra Planta" /><span data-key="inicio_planta3">Planta 3</span></a>
+        <a href="#tecnologia" style="color: white;"><img src="img/ruiromer.jpg" alt="Tecnología" /><span data-key="inicio_tecnologia">Tecnología aragonesa</span></a>
       </div>
     </div>
   </section>
@@ -210,163 +241,212 @@
   <!-- PLANTAS -->
   <section id="planta1">
     <div class="container">
-      <h2>Primera Planta</h2>
-      <p>Historia del cine desde 1860 hasta 1975. 
-        Pasando por el número uno de la industria nacional en España que fue OSSA.</p><br>
+      <h2 data-key="planta1_titulo">Primera Planta</h2>
+      <p data-key="planta1_parrafo">Historia del cine desde 1860 hasta 1975. 
+        La empresa española OSSA alcanzó lo máximo en ese sector.</p><br>
 
-      <a><img src="img/planta_1.jpg" alt="1ra Planta" style="width: 100%; height: 350px; object-fit: cover;" />
+      <a><img src="img/planta_1.jpg" alt="1ra Planta" style="width: 100%; height: 350px; object-fit: cover;" /></a>
 
       <div class="inicio-grid">
-        <h3>La marca numero uno en España OSSA fabricó proyectores de 1930 a 1965, que conquistaron el 90% de los cines de España.</h3>
+        <h3 data-key="planta1_subtitulo1">La marca numero uno en España OSSA fabricó proyectores de 1930 a 1965, que conquistaron el 90% de los cines de la península.</h3>
         <a href="img/ossa_30_65.jpg" target="_blank"><img src="img/ossa_30_65.jpg" alt="1ra Planta" /></a>
       </div>
       
       <div class="inicio-grid">
-        <h3>Toda la industria nacional española del juguete relacionada con el cine desde 1900 hasta 1980.</h3>
+        <h3 data-key="planta1_subtitulo2">Toda la industria nacional española del juguete relacionada con el cine desde 1900 hasta 1980.</h3>
         <a href="img/juguete.jpg" target="_blank"><img src="img/juguete.jpg" alt="1ra Planta" /></a>
       </div>
 
       <div class="inicio-grid">
-        <h3>Marcas de proyectores españoles que surgieron en los años 50 y todos fracasaron: HISPANIA, DAEX, DICKSON, MARINO, WAXMAN, CREA, GALAN, RIVATON, MAYAFOT, PERGAM...</h3>
+        <h3 data-key="planta1_subtitulo3">Marcas de proyectores españoles que surgieron en los años 40 y todas fracasaron: HISPANIA, DAEX, DICKSON, MARINO, WASMANN, CREA, GALAN, RIVATON, MAYAFOT, PERGAM...</h3>
         <a href="img/proyectores.jpg" target="_blank"><img src="img/proyectores.jpg" alt="1ra Planta" /></a>
       </div>
 
       <div class="inicio-grid">
-        <h3>Proyectores de juguete fabricados en USA y otros países con licencia y tecnología española a partir de 1930.</h3>
+        <h3 data-key="planta1_subtitulo4">Proyectores de juguete fabricados en USA y otros países con licencia y tecnología española a partir de 1930.</h3>
         <a href="img/juguetes-usa.jpg" target="_blank"><img src="img/juguetes-usa.jpg" alt="1ra Planta" /></a>
       </div>
 
       <div class="inicio-grid">
-        <h3>Historia del cine mudo desde 1860 hasta 1927.</h3>
+        <h3 data-key="planta1_subtitulo6">Stand DUCATI. DUCATI comenzó fabricando condensadores para radio y en 1958 lanzó al mercado un proyector de cine familiar y profesional de 16 milímetros.</h3>
+        <a href="img/ducati.jpg" target="_blank"><img src="img/ducati.jpg" alt="1ra Planta" /></a>
+      </div>
+
+      <div class="inicio-grid">
+        <h3 data-key="planta1_subtitulo5">Historia del cine mudo desde 1860 hasta 1927. <br>
+          Linternas mágicas, proyectores, dictáfonos, gramófonos, gramolas... <br>
+          EDISON, PATHE, LUMIERE, CHARLES CHAPLIN, GAUMONT, AEG...
+        </h3>
         <a href="img/mudo.jpg" target="_blank"><img src="img/mudo.jpg" alt="1ra Planta" /></a>
       </div>
 
     </div>
   </section>
 
-  <section id="planta2">
-    <div class="container">
-      <h2>Segunda Planta</h2>
-      <p>En esta planta podemos contemplar todas las innovaciones técnicas
-        hechas por OSSA y por otros países con la tecnología OSSA.
-      </p><br>
-      <a><img src="img/planta_2_gral.jpg" alt="2da Planta" style="width: 100%; height: 350px; object-fit: cover;"/>
-
-      
-      <div class="inicio-grid">
-        <h3>Motos que revolucionaron el mercado americano</h3>
-        <a href="img/yankee_1000z_4cylinder.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" />
-          OSSA Yankee 4 cilindros, motor de 1000cc, firmada por su constructor Dickmann.</a>
-        <a href="img/yankee_460z.jpg" target="_blank"><img src="img/yankee_460z.jpg" alt="2da Planta" />
-          OSSA Yankee 460z, preparada para carreras de Dirt Track.</a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>El equipo OSSA de ciclismo que ganó el campeonato de España en 1956.</h3>
-        <a href="img/ossa_1956.jpg" target="_blank"><img src="img/ossa_1956.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>Ricardo Soriano, el mayor inventor que ha habido en automoción en España en el Siglo XX y sus inventos, y nada reconocido en España.</h3>
-        <a href="img/soriano.jpg" target="_blank"><img src="img/soriano.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>La historia de las suspensiones Off Road Cantilever (Prolever), Full Floater,
-          Prolink, Unitrack... todas ellas derivadas del sistema Bolger (OSSA).</h3>
-        <a href="img/yamaha.jpg" target="_blank"><img src="img/yamaha.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>Las motos OSSA de jugar al fútbol: Motoball. Muy apreciadas también en Francia.</h3>
-        <a href="img/motoball.jpg" target="_blank"><img src="img/motoball.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>El desarrollo del trial y sidetrial en España y en Europa.</h3>
-        <a href="img/trial_1.jpg" target="_blank"><img src="img/trial_1.jpg" alt="1ra Planta" /></a>
-        <a href="img/sidetrial.jpg" target="_blank"><img src="img/sidetrial.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>Hispano Villiers: Un nombre que revolucionó la industria del motor en España
-          a todos los niveles y ayudó al desarrollo económico en la Posguerra.</h3>
-        <a href="img/villiers.jpg" target="_blank" ><img src="img/villiers.jpg" alt="1ra Planta" /></a>
-        <a href="img/villiers_2.jpg" target="_blank"><img src="img/villiers_2.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>Motos OSSA que participaron en grandes eventos: OSSA 24 horas de Montjuich, Paris Dakar, 24 horas de Le Mans.</h3>
-        <a href="img/Montjuic.jpg" target="_blank"><img src="img/Montjuic.jpg" alt="1ra Planta" />OSSA de 24 horas de Montjuich</a>
-        <a href="img/dakar.jpg" target="_blank"><img src="img/dakar.jpg" alt="1ra Planta" />OSSA de Paris Dakar y Rally de Marruecos</a>
-        <a href="img/le_mans.jpg" target="_blank"><img src="img/le_mans.jpg" alt="1ra Planta" />OSSA de 24 horas de Le Mans</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="planta3">
-    <div class="container">
-      <h2>Tercera Planta</h2>
-      <p>Toda la gama OSSA fabricada a lo largo de 40 años en sus diferentes clases: Trial, Motocross, Enduro, Ciclomotores y Carretera.
-        Acompañado de objetos de época: ropa, cascos, surtidores...
-      </p><br> <!-- Falta annadir fotos de cada clase aqui-->
-      <a><img src="img/planta_3_h.jpg" alt="3ra Planta" style="width: 100%; height: 350px; object-fit: cover;"/>
-
-
-      <div class="inicio-grid">
-        <h3>El rarísimo vehículo Ruiromer, fabricado en Zaragoza, mezcla de coche y moto y que no tuvo difusión.</h3>
-        <a href="img/ruiromer.jpg" target="_blank"><img src="img/ruiromer.jpg" alt="1ra Planta" /></a>
-      </div>
-
-      <div class="inicio-grid">
-        <h3>Las motos fabricadas en Zaragoza, para calle y competición, y su conexión con las industrias Balay y Lackey.</h3>
-        <a href="img/lackey.jpg" target="_blank"><img src="img/lackey.jpg" alt="1ra Planta" /></a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="tecnologia">
+<section id="planta2"> 
   <div class="container">
-    <h2>Tecnología aragonesa</h2> <!-- poner cuarta foto -->
-    <p>Vehículos fabricados en Zaragoza y otras historias...</p>
+    <h2 data-key="planta2_titulo">Segunda Planta</h2>
+    <p data-key="planta2_parrafo">
+      En esta planta podemos contemplar prototipos, motocicleta española rara, 
+      vehículos de 3 y 4 ruedas con tecnología OSSA, e innovaciones técnicas en el mundo con material OSSA.
+    </p><br>
+    <a><img src="img/planta_2_gral.jpg" alt="2da Planta" style="width: 100%; height: 350px; object-fit: cover;"/></a>
 
     <div class="inicio-grid">
-      <h3>Coche Barrio.... El único coche construido por Industrias Barrio en 1969.</h3>
-      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+      <h3 data-key="planta2_subtitulo1">Motos que revolucionaron el mercado americano</h3>
+      <a href="img/yankee_1000z_4cylinder.jpg" target="_blank">
+        <img src="img/yankee_1000z_4cylinder.jpg" alt="2da Planta" />
+        OSSA Yankee 4 cilindros, motor de 1000cc, firmada por su constructor Dick Mann.
+      </a>
+      <a href="img/yankee_460z.jpg" target="_blank">
+        <img src="img/yankee_460z.jpg" alt="2da Planta" />
+        OSSA Yankee 460z, preparada para carreras de Dirt Track.
+      </a>
     </div>
 
     <div class="inicio-grid">
-      <h3>El rarísimo vehículo Ruiromer, mezcla de coche y moto y que no tuvo difusión.</h3>
-      <a href="img/ruiromer.jpg" target="_blank"><img src="img/ruiromer.jpg" alt="1ra Planta" /></a>
+      <h3 data-key="planta2_subtitulo2">El equipo OSSA de ciclismo que ganó el campeonato de España en 1956.</h3>
+      <a href="img/ossa_1956.jpg" target="_blank"><img src="img/ossa_1956.jpg" alt="2da Planta" /></a>
     </div>
 
     <div class="inicio-grid">
-      <h3>Las motos fabricadas en Zaragoza, para calle y competición, y su conexión con las industrias Balay y Lackey.</h3>
-      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+      <h3 data-key="planta2_subtitulo3">Ricardo Soriano, el mayor inventor que ha habido en automoción en España en el Siglo XX 
+        y sus inventos.</h3>
+      <a href="img/soriano.jpg" target="_blank"><img src="img/soriano.jpg" alt="2da Planta" /></a>
     </div>
 
     <div class="inicio-grid">
-      <h3>Una de las industrias jugueteras más importantes a nivel nacional como fueron Nacoral y Zaplas.</h3>
-      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+      <h3 data-key="planta2_subtitulo4">La historia de las suspensiones Off Road Cantilever (Prolever), Full Floater, Prolink, Unitrack... todas ellas derivadas del sistema Bolger (OSSA).</h3>
+      <a href="img/yamaha.jpg" target="_blank"><img src="img/yamaha.jpg" alt="2da Planta" /></a>
     </div>
 
     <div class="inicio-grid">
-      <h3>Escalar las torres del Pilar en 1922 sin cuerdas y sesión de cine en la Plaza del Pilar.</h3>
-      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+      <h3 data-key="planta2_subtitulo5">Las motos OSSA de jugar al fútbol: Motoball. Muy apreciadas también en Francia.</h3>
+      <a href="img/motoball.jpg" target="_blank"><img src="img/motoball.jpg" alt="2da Planta" /></a>
     </div>
 
     <div class="inicio-grid">
-      <h3>Moto Valls: Una moto adelantada téncnicamente a su tiempo y que no pasó del prototipo.</h3>
-      <a href="img/ruiromer.jpg" target="_blank"><img src="img/yankee_1000z_4cylinder.jpg" alt="1ra Planta" /></a>
+      <h3 data-key="tecnologia_subtitulo6">Moto Valls: Una moto adelantada técnicamente a su tiempo y que no pasó del prototipo.</h3>
+      <a href="img/motovalls.jpg" target="_blank">
+        <img src="img/motovalls.jpg" alt="Moto Valls" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta2_subtitulo6">El desarrollo del trial y sidetrial en España y en Europa.</h3>
+      <a href="img/trial_1.jpg" target="_blank"><img src="img/trial_1.jpg" alt="2da Planta" /></a>
+      <a href="img/sidetrial.jpg" target="_blank"><img src="img/sidetrial.jpg" alt="2da Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta2_subtitulo7">Hispano Villiers: Un nombre que revolucionó la industria del motor en España a todos los niveles y ayudó al desarrollo económico en la Posguerra.</h3>
+      <a href="img/villiers.jpg" target="_blank"><img src="img/villiers.jpg" alt="2da Planta" /></a>
+      <a href="img/villiers_2.jpg" target="_blank"><img src="img/villiers_2.jpg" alt="2da Planta" /></a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta2_subtitulo8">Motos OSSA que participaron en grandes eventos: 24 horas de Montjuich, Paris Dakar, 24 horas de Le Mans.</h3>
+      <a href="img/Montjuic.jpg" target="_blank"><img src="img/Montjuic.jpg" alt="2da Planta" />OSSA de 24 horas de Montjuich</a>
+      <a href="img/dakar.jpg" target="_blank"><img src="img/dakar.jpg" alt="2da Planta" />OSSA de Paris Dakar y Rally de Marruecos</a>
+      <a href="img/le_mans.jpg" target="_blank"><img src="img/le_mans.jpg" alt="2da Planta" />OSSA de 24 horas de Le Mans</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="planta3">
+  <div class="container">
+    <h2 data-key="planta3_titulo">Tercera Planta</h2>
+    <p data-key="planta3_parrafo">
+      Toda la gama OSSA fabricada a lo largo de 40 años en sus diferentes clases: Trial, Motocross, Enduro, Ciclomotores y Carretera.
+      Acompañado de objetos de época: ropa, cascos, surtidores...
+    </p><br>
+    <a>
+      <img src="img/planta_3_h.jpg" alt="3ra Planta" style="width: 100%; height: 350px; object-fit: cover;"/>
+    </a>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta3_subtitulo1">MOTOCROSS</h3>
+      <a href="img/motocross.jpg" target="_blank"><img src="img/motocross.jpg" alt="Motocross" />
+        <a href="img/motocross2.jpg" target="_blank"><img src="img/motocross2.jpg" alt="Motocross" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta3_subtitulo2">TRIAL</h3>
+      <a href="img/trial.jpg" target="_blank">
+        <img src="img/trial-2.jpg" alt="Trial" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta3_subtitulo2">ENDURO</h3>
+      <a href="img/enduro.jpg" target="_blank">
+        <img src="img/enduro.jpg" alt="Enduro" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="planta3_subtitulo4">CARRETERA</h3>
+      <a href="img/road.jpg" target="_blank">
+        <img src="img/road.jpg" alt="Road" />
+      </a>
     </div>
 
   </div>
-  </section>
+</section>
 
-  <section id="opiniones">
+
+<section id="tecnologia">
   <div class="container">
-    <h2>Opiniones</h2>
+    <h2 data-key="tecnologia_titulo">Tecnología aragonesa</h2>
+    <p data-key="tecnologia_parrafo">Vehículos fabricados en Zaragoza y otras historias...</p>
+
+    <div class="inicio-grid">
+      <h3 data-key="tecnologia_subtitulo1">Coche Barrio.... El único coche construido por Manuel Barrio S.A. (Maquinaria agrícola) en 1969.</h3>
+      <a href="img/barrio.jpg" target="_blank">
+        <img src="img/barrio.jpg" alt="Coche Barrio" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="tecnologia_subtitulo2">El rarísimo vehículo Ruiromer, mezcla de coche y moto y que no tuvo difusión.</h3>
+      <a href="img/ruiromer.jpg" target="_blank">
+        <img src="img/ruiromer.jpg" alt="Ruiromer" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="tecnologia_subtitulo3">Las motos fabricadas en Zaragoza, para calle y competición, y su conexión con las industrias Balay y Lackey.</h3>
+      <a href="img/lackey.jpg" target="_blank">
+        <img src="img/lackey.jpg" alt="Motos Zaragoza" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="tecnologia_subtitulo4">Dos de las industrias jugueteras más importantes a nivel nacional como fueron Nacoral y Zaplas.</h3>
+      <a href="img/zaplas.jpg" target="_blank">
+        <img src="img/zaplas.jpg" alt="Jugueteras Nacoral y Zaplas" />
+      </a>
+    </div>
+
+    <div class="inicio-grid">
+      <h3 data-key="tecnologia_subtitulo5">Escalar las torres del Pilar en 1922 sin cuerdas y sesión de cine en la Plaza del Pilar.</h3>
+      <a href="img/teatro.jpg" target="_blank">
+        <img src="img/teatro.jpg" alt="Torres del Pilar" />
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="opiniones">
+  <div class="container">
+    <h2 data-key="opiniones_titulo">Opiniones</h2>
+    <p data-key="opiniones_parrafo">
+      El museo ha recibido visitantes de los 5 continentes...
+    </p>
 
     <div class="firmas-grid">
       <a href="img/firmas/amazing.jpg" target="_blank"><img src="img/firmas/amazing.jpg" alt="Firma" /></a>
@@ -386,25 +466,149 @@
       <a href="img/firmas/closed.jpg" target="_blank"><img src="img/firmas/closed.jpg" alt="Firma" /></a>
       <a href="img/firmas/felicitacions.jpg" target="_blank"><img src="img/firmas/felicitacions.jpg" alt="Firma" /></a>
       <a href="img/firmas/pasada.jpg" target="_blank"><img src="img/firmas/pasada.jpg" alt="Firma" /></a>
-      
     </div>
 
   </div>
-  </section>
+</section>
 
 
-  <section id="contacto">
-    <div class="container">
-      <h2>Contacto</h2>
-      <p>📍 Dirección: Utebo, Zaragoza, España</p>
-      <p>✉️ Email: ossamuseoutebo@gmail.com</p>
-      <p>Actualmente el museo está cerrado. <br> El correo electrónico se revisa diariamente.</p>
-    </div>
-  </section>
+<section id="contacto">
+  <div class="container">
+    <h2 data-key="contacto_titulo">Contacto</h2>
+    <p data-key="contacto_direccion">📍 Dirección: Utebo, Zaragoza, España</p>
+    <p data-key="contacto_email">✉️ Email: ossamuseoutebo@gmail.com</p>
+    </p>
+    <p data-key="contacto_parrafo_adicional">
+      Para más información, contáctanos vía correo electrónico.
+    </p>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Museo Ossa - Todos los derechos reservados
-  </footer>
+<footer>
+  <p data-key="footy" style="font-size: 1.5em; font-weight: bold; color: yellow;">Museo reconocido a nivel mundial pero ignorado en Aragón.</p>
+  <p>© 2025 Museo Ossa - Todos los derechos reservados</p>
+</footer>
 
+
+  <script>
+    const translations = {
+      en: {
+        nav_inicio: "Home",
+        nav_planta1: "1st Floor",
+        nav_planta2: "2nd Floor",
+        nav_planta3: "3rd Floor",
+        nav_tecnologia: "Technology",
+        nav_opiniones: "Reviews",
+        nav_contacto: "Contact",
+
+        inicio_titulo: "Welcome to the Ossa Science and Technology Museum",
+        inicio_parrafo: `Since the 19th century and throughout the 20th, technology has never stopped evolving.
+<br> At the "Ossa" museum, a museum of stories, we can find the results of that technological evolution.
+<br> The first film projectors ever made, sewing machines, record players, children's toys related to cinema, outboard motors, and 2- and 4-stroke combustion engines...`,
+        inicio_planta1: "Floor 1",
+        inicio_planta2: "Floor 2",
+        inicio_planta3: "Floor 3",
+        inicio_tecnologia: "Aragonese technology",
+
+        planta1_titulo: "First Floor",
+        planta1_parrafo: "History of cinema from 1860 until 1975. The Spanish company OSSA reached the top in that sector.",
+        planta1_subtitulo1: "Spain’s number one brand, OSSA, manufactured projectors from 1930 to 1965, which captured 90% of the cinemas across the peninsula.",
+        planta1_subtitulo2: "The entire Spanish national toy industry related to cinema from 1900 until 1980.",
+        planta1_subtitulo3: "Spanish projector brands that appeared in the 1940s and all failed: HISPANIA, DAEX, DICKSON, MARINO, WAXMAN, CREA, GALAN, RIVATON, MAYAFOT, PERGAM...",
+        planta1_subtitulo4: "Toy projectors manufactured in the USA and other countries under Spanish license and technology from 1930 onwards.",
+        planta1_subtitulo5: "History of silent cinema from 1860 until 1927. <br> Magic lanterns, projectors, dictaphones, gramophones, jukeboxes... <br> EEDISON, PATHE, LUMIÈRE, CHARLIE CHAPLIN, GAUMONT, AEG...",
+        planta1_subtitulo6: "DUCATI Stand. DUCATI began by manufacturing radio capacitors and, in 1958, launched a 16mm film projector for both home and professional use.",
+
+        planta2_titulo: "Second Floor",
+        planta2_parrafo: "On this floor, we can see prototypes, a rare Spanish motorcycle, three- and four-wheeled vehicles featuring OSSA technology, and technical innovations worldwide using OSSA materials.",
+        planta2_subtitulo1: "Motorcycles that revolutionized the American market",
+        planta2_subtitulo2: "The OSSA cycling team that won the Spanish championship in 1956.",
+        planta2_subtitulo3: "Ricardo Soriano, the greatest automotive inventor in Spain in the 20th century, and his inventions",
+        planta2_subtitulo4: "The history of Off-Road suspensions: Cantilever (Prolever), Full Floater, Prolink, Unitrack... all derived from the Bolger system (OSSA).",
+        planta2_subtitulo5: "OSSA motorcycles used in Motoball, highly appreciated in France as well.",
+        planta2_subtitulo6: "The development of trial and sidetrial in Spain and Europe.",
+        planta2_subtitulo7: "Hispano Villiers: A name that revolutionized the motor industry in Spain and helped economic development post-war.",
+        planta2_subtitulo8: "OSSA motorcycles that participated in major events: OSSA 24 Hours of Montjuich, Paris Dakar, 24 Hours of Le Mans.",
+
+        planta3_titulo: "Third Floor",
+        planta3_parrafo: `The entire OSSA range produced over 40 years in different categories: Trial, Motocross, Enduro, Mopeds, and Road bikes.<br>Accompanied by period objects: clothing, helmets, fuel pumps...`,
+        planta3_subtitulo1: "MOTOCROSS",
+        planta3_subtitulo2: "TRIAL",
+        planta3_subtitulo3: "ENDURO",
+        planta3_subtitulo4: "ROAD",
+
+        tecnologia_titulo: "Aragonese Technology",
+        tecnologia_parrafo: "Vehicles manufactured in Zaragoza and other stories...",
+
+        tecnologia_subtitulo1: "Barrio Car... The only car ever built by Manuel Barrio S.A. (Agricultural Machinery) in 1969.",
+        tecnologia_subtitulo2: "The very rare Ruiromer vehicle, a mix between car and motorcycle, which never gained popularity.",
+        tecnologia_subtitulo3: "Motorcycles manufactured in Zaragoza for street and competition, connected with Balay and Lackey industries.",
+        tecnologia_subtitulo4: "One of the most important national toy industries: Nacoral and Zaplas.",
+        tecnologia_subtitulo5: "Climbing the towers of the Pilar in 1922 without ropes and a cinema session in the Plaza del Pilar.",
+        tecnologia_subtitulo6: "Moto Valls: A motorcycle ahead of its time technically that never went beyond the prototype stage.",
+
+        opiniones_titulo: "Reviews",
+        opiniones_parrafo: "The museum has received visitors from all five continents...",
+
+        contacto_titulo: "Contact",
+        contacto_direccion: "📍 Address: Utebo, Zaragoza, Spain",
+        contacto_email: "✉️ Email: ossamuseoutebo@gmail.com",
+        contacto_info: "Currently the museum is closed.<br>The email is checked daily.",
+        contacto_parrafo_adicional: "For more information, you can contact us via email.",
+        footer_copyright: "© 2025 Ossa Museum - All rights reserved",
+        footy: "A museum recognized worldwide but ignored in Aragón.",
+      }
+    };
+
+    const btnEs = document.getElementById('btn-es');
+    const btnEn = document.getElementById('btn-en');
+
+    function setLanguage(lang) {
+      // Cambiar texto
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (lang === 'es') {
+          // En español, no hacemos nada, usamos el texto original
+          // Pero para que no quede con HTML no interpretado, mejor
+          // reemplazar el contenido con el original hardcodeado
+          // Pero para simplificar, dejamos tal cual el texto en español en HTML.
+          // Así que solo cuando sea inglés reemplazamos texto
+          if (translations.en[key]) {
+            // Si estamos en español dejamos el texto original del HTML
+            // para que vuelva el texto original, hay que guardar textos originales si quieres cambiar.
+            // Para este caso, dejamos así.
+          }
+        } else if (lang === 'en') {
+          if (translations.en[key]) {
+            el.innerHTML = translations.en[key];
+          }
+        }
+      });
+
+      // Cambiar estado activo en las banderas
+      if (lang === 'es') {
+        btnEs.classList.add('active');
+        btnEn.classList.remove('active');
+        document.documentElement.lang = 'es';
+      } else if (lang === 'en') {
+        btnEs.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+      }
+    }
+
+    // Inicial
+    btnEs.addEventListener('click', () => {
+      location.reload(); // Para restablecer el texto original en español
+      // También podemos hacer setLanguage('es') pero para que se restablezca el texto original, recargamos.
+    });
+
+    btnEn.addEventListener('click', () => {
+      setLanguage('en');
+    });
+
+    // Por defecto español
+    setLanguage('es');
+  </script>
 </body>
 </html>
