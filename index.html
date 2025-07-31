@@ -203,11 +203,7 @@
 </head>
 <body>
 
-<!-- Banderas arriba del todo (fuera del nav) -->
-<div class="flags-top">
-  <img src="img/bandera_es.png" alt="Español" id="btn-es" class="active" title="Español" />
-  <img src="img/bandera_en.png" alt="English" id="btn-en" title="English" />
-</div>
+
 
 <!-- Botón hamburguesa (solo visible en móvil) -->
 <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
@@ -221,6 +217,13 @@
   <a href="#tecnologia" data-key="nav_tecnologia">Tecnología</a>
   <a href="#opiniones" data-key="nav_opiniones">Opiniones</a>
   <a href="#contacto" data-key="nav_contacto">Contacto</a>
+
+  <!-- Banderas arriba del todo (fuera del nav) -->
+  <div class="flags-top">
+    <img src="img/bandera_es.png" alt="Español" id="btn-es" class="active" title="Español" />
+    <img src="img/bandera_en.png" alt="English" id="btn-en" title="English" />
+  </div>
+
 </nav>
 
 <style>
@@ -264,19 +267,22 @@
     cursor: pointer;
   }
 
+
+  /* ----------- BANDERAS ----------- */
   .flags-top {
-    display: none;
-    position: fixed;
+    display: flex;
+    position: absolute;
     top: 0.5rem;
-    left: 1rem;
+    right: 1rem;
     z-index: 1002;
     gap: 0.5rem;
-  transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
   }
 
+  
   .flags-top img {
-    width: 24px;
-    height: auto;
+    width: 28px;
+    height: 20px;
     cursor: pointer;
     border-radius: 3px;
     transition: transform 0.2s;
@@ -286,13 +292,17 @@
     transform: scale(1.1);
   }
 
+
   @media (max-width: 768px) {
     .menu-toggle {
       display: block;
     }
 
     .flags-top {
-      display: flex;
+      position: fixed;
+      top: 0.5rem;
+      left: 1rem;
+      right: auto;
     }
 
     nav {
